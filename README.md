@@ -2,38 +2,39 @@
 
 
 - https://consensys.net/docs/goquorum/en/latest/tutorials/quorum-dev-quickstart/using-the-quickstart/
+
+## VM Setup
 ```
   $ sudo apt update
   $ sudo apt install docker.io
   $ sudo groupadd docker
   $ sudo usermod -aG docker $USER
-```
+
 Restart VM
 
-### Install NodeJs
+#### Install NodeJs
   $ curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
   $ sudo apt-get install -y nodejs
   $ sudo apt-get install gcc g++ make
   
   
-### Yarn Install
+#### Yarn Install
   $ curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
   $ echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   $ sudo apt-get update && sudo apt-get install yarn
-
-### Quorum Quickstart
 
 #### Permission 
   sudo chown -R $USER ~/.npm
   sudo chown -R $USER /usr/lib/node_modules
   sudo chown -R $USER /usr/local/lib/node_modules
   sudo chown -R $USER /usr/bin/
+```
 
-  npm install -g quorum-dev-quickstart
-
-
-  cd network
-  ./run.sh
+### Quorum Quickstart
+```
+npm install -g quorum-dev-quickstart
+cd network
+./run.sh
   
 #### Gives CLient version  
   curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' -H 'Content-Type: application/json' http://<gcp_ext_ip>:8545
@@ -46,7 +47,7 @@ Restart VM
   
   
 ### Install Web3
-  npm install web3
+npm install web3
  
 ### deploy the private transaction
   cd smart_contracts
@@ -77,6 +78,7 @@ Getting contractAddress from txHash:  {
 }
 
 eth.getTransaction('0xfd6a88e908bd9a916dafb1c865283c0c7dedd14a850676776c45d6e41b12213e')
+```
 
 ### Check in all 3 nodes
 ```
